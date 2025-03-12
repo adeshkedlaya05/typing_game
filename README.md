@@ -36,6 +36,9 @@ Reflex Typing is a fast-paced typing game designed to test your reflexes and typ
 ## 🖥️ UI & Design
 - **Dark background** with white characters.
 - Simple and clean user interface.
+## Architecture Diagram 🗺️
+![system diagram of game](https://github.com/user-attachments/assets/e5aa01be-496e-4a01-aa26-2f16df5752af)
+
 
 ## 🚀 How to Play
 1. Click the **"Play"** button to start.
