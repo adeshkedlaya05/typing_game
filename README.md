@@ -1,6 +1,6 @@
 # Reflex Typing
 
-Neon Typing Reflex is a fast-paced typing game designed to test your reflexes and typing speed. The goal is to type characters before they disappear while the game progressively speeds up.
+Reflex Typing is a fast-paced typing game designed to test your reflexes and typing speed. The goal is to type characters before they disappear while the game progressively speeds up.
 
 ## 🎮 Gameplay Overview
 
@@ -46,3 +46,12 @@ Neon Typing Reflex is a fast-paced typing game designed to test your reflexes an
 Enjoy the challenge! 🚀
 
 ## Docker Image Link From the registry : https://hub.docker.com/repository/docker/adeshkedlaya2003/game/general
+## Some Images of the Game play 
+![Screenshot 2025-03-12 111418](https://github.com/user-attachments/assets/44b919ee-9402-42d4-bd49-37f24bcc223b)
+
+![Screenshot 2025-03-12 111436](https://github.com/user-attachments/assets/97a53105-5964-4b6f-bb62-894da23055b8)
+
+![Screenshot 2025-03-12 111502](https://github.com/user-attachments/assets/6561f9d9-667e-4126-81c5-1ceac7fe8e52)
+
+
+
