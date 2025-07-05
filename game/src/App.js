@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { motion, AnimatePresence } from "framer-motion";
 
 const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
 
@@ -102,9 +103,20 @@ const App = () => {
         </div>
       )}
 
-      {gameState === "countdown" && (
-        <h1 className="display-1 fw-bold">{countdown === 0 ? "Start!" : countdown}</h1>
-      )}
+      <AnimatePresence>
+        {gameState === "countdown" && (
+          <motion.h1
+            className="display-1 fw-bold"
+            key="countdown"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ duration: 0.5, type: "spring" }}
+          >
+            {countdown === 0 ? "Start!" : countdown}
+          </motion.h1>
+        )}
+      </AnimatePresence>
 
       {gameState === "playing" && (
         <>
@@ -121,8 +133,12 @@ const App = () => {
 
           <h2 className="position-absolute top-0 mt-4 fs-1 fw-bold">Score: {score}</h2>
 
-          <h1
+          <motion.h1
             className="position-absolute fw-bold"
+            key={currentChar}
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.3, type: "spring" }}
             style={{
               ...position,
               color: charColor,
@@ -131,35 +147,36 @@ const App = () => {
             }}
           >
             {currentChar}
-          </h1>
+          </motion.h1>
         </>
       )}
 
-      {gameState === "gameover" && (
-        <div
-          className="text-white p-4 rounded shadow text-center"
-          style={{
-            background: "linear-gradient(135deg, rgba(10,15,37,0.95), rgba(26,14,42,0.95))",
-            boxShadow: "0 0 20px rgba(0, 255, 255, 0.6)",
-            border: "1px solid rgba(255,255,255,0.2)",
-          }}
-        >
-          <h1 className="mb-3">Game Over!</h1>
-          <h4 className="mb-4">Final Score: {score}</h4>
-          <button
-            className="btn btn-success me-3 px-4 py-2 fs-5"
-            onClick={() => setGameState("countdown")}
+      <AnimatePresence>
+        {gameState === "gameover" && (
+          <motion.div
+            key="gameover"
+            className="text-white p-4 rounded shadow text-center"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.5 }}
+            style={{
+              background: "linear-gradient(135deg, rgba(10,15,37,0.95), rgba(26,14,42,0.95))",
+              boxShadow: "0 0 20px rgba(0, 255, 255, 0.6)",
+              border: "1px solid rgba(255,255,255,0.2)",
+            }}
           >
-            Play Again
-          </button>
-          <button
-            className="btn btn-danger px-4 py-2 fs-5"
-            onClick={() => setGameState("home")}
-          >
-            Home
-          </button>
-        </div>
-      )}
+            <h1 className="mb-3">Game Over!</h1>
+            <h4 className="mb-4">Final Score: {score}</h4>
+            <button className="btn btn-success me-3 px-4 py-2 fs-5" onClick={() => setGameState("countdown")}>
+              Play Again
+            </button>
+            <button className="btn btn-danger px-4 py-2 fs-5" onClick={() => setGameState("home")}>
+              Home
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
